@@ -1,0 +1,27 @@
+{
+  "name": "hasyam-api",
+  "version": "0.0.1",
+  "description": "A ശുദ്ധ ഹാസ്യം (Pure Comedy) API",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akishtp/hasyam-api.git"
+  },
+  "keywords": [
+    "API",
+    "REST",
+    "Jokes",
+    "Malayalam",
+    "Kerala",
+    "Free-API"
+  ],
+  "author": "Akish T P",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/akishtp/hasyam-api/issues"
+  },
+  "homepage": "https://github.com/akishtp/hasyam-api#readme"
+}
