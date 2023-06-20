@@ -28,10 +28,16 @@ userSchema.statics.signup = async function (
     throw Error("Email already in use");
   }
   const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(password, salt);
-  const API_key = crypto.randomBytes(32).toString("hex");
+  const hash_password = await bcrypt.hash(password, salt);
+  const API_key = crypto.randomBytes(12).toString("hex");
+  const hash_API = await bcrypt.hash(password, salt);
 
-  const user = await this.create({ name, password: hash, email, API_key });
+  const user = await this.create({
+    name,
+    password: hash_password,
+    email,
+    API_key: hash_API,
+  });
 
   return user;
 };
