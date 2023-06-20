@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 // route imports
 const userRoutes = require("./user/userRoutes");
+const jokeRoutes = require("./joke/jokeRoutes");
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.options("*", cors());
 app.use(express.json());
 
 app.use("/api/user", userRoutes);
+app.use("/api/joke", jokeRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("ശുദ്ധ ഹാസ്യം മരിച്ചിട്ടില്ല ?");
