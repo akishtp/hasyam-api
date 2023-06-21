@@ -3,11 +3,23 @@
   <head>
     <title>Post to API</title>
   </head>
-  <body>
-    <textarea id="inputText" rows="4" cols="50"></textarea>
+  <body
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+    "
+  >
+    <textarea
+      id="inputText"
+      rows="16"
+      cols="64"
+      style="font-size: 24px"
+    ></textarea>
     <br />
     <button onclick="postData()">Submit</button>
-
     <script>
       function postData() {
         // Get the input text from the textarea
@@ -17,7 +29,7 @@
         var xhr = new XMLHttpRequest();
 
         // Define the API endpoint URL
-        var apiUrl = "http://localhost:5000/api/joke/"; // Replace with your actual API endpoint URL
+        var apiUrl = "https://hasyam-api.cyclic.app/api/joke/"; // Replace with your actual API endpoint URL
 
         // Set the request method and URL
         xhr.open("POST", apiUrl, true);
@@ -37,7 +49,7 @@
         };
 
         // Create a JSON object with the input text
-        var data = JSON.stringify({ joke: inputText, lanfuage: "malayalam" });
+        var data = JSON.stringify({ joke: inputText, language: "malayalam" });
 
         // Send the request with the JSON data
         xhr.send(data);
