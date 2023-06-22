@@ -8,12 +8,55 @@
     <title>ശുദ്ധ ഹാസ്യം | Pure Comedy</title>
   </head>
   <body>
-    <navbar class="flex items-center justify-between h-14 bg-gray-50">
-      <div>ശുദ്ധ ഹാസ്യം</div>
-      <div>
-        <div>random joke</div>
-        <div><a href="./src/submit.html">submit a joke</a></div>
+    <nav
+      class="flex items-center justify-center bg-gray-50 drop-shadow-lg bg-yellow-300 md:h-16"
+    >
+      <div
+        class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
+      >
+        <div class="h-16 flex items-center">
+          <img src="../assets/logo-light.png" class="h-8 w-auto" />
+        </div>
+        <div
+          class="flex justify-center text-xl flex-col md:flex-row md:items-center md:text-base"
+        >
+          <div
+            class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center mx-10"
+          >
+            random joke 🔀
+          </div>
+          <div
+            class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center cursor-pointer mx-10 md:ml-0"
+          >
+            <a href="./src/submit.html">submit a joke 📝</a>
+          </div>
+        </div>
       </div>
-    </navbar>
+    </nav>
+    <main class="flex items-center flex-col w-screen py-8 text-xl min-h-1000">
+      <div class="w-11/12 md:w-10/12">
+        <div class="border-2 rounded-3xl px-32 py-32 text-4xl">
+          The big huge gigantic joke will will be written and dispalyed here in
+          a fancy way probably. This is fancy indeed. it is still shorter than
+          what I expected. hence I will add more lines to make it longer
+        </div>
+      </div>
+    </main>
+    <footer
+      class="bottom-0 flex justify-center w-screen shadow-3xl bg-yellow-300 py-8 h-52"
+    >
+      <div class="w-11/12 flex justify-between md:w-10/12">
+        <div class="w-1/2">
+          <img src="../assets/logo-light.png" class="w-full md:w-4/12" />
+        </div>
+        <div class="text-m">
+          <div>About</div>
+          <div>API</div>
+          <div>Contact</div>
+          <div>Docs</div>
+          <div>Submit a joke</div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

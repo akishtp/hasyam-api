@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       minHeight: {
         100: "10rem",
+        1000: "calc(100vh - 272px)",
       },
     },
   },
