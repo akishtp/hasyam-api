@@ -8,33 +8,50 @@
     <title>ഒരു തമാശ പറ</title>
   </head>
   <body>
-    <navbar
-      class="flex items-center justify-between h-16 bg-gray-50 drop-shadow-lg"
+    <nav
+      class="flex items-center justify-center bg-gray-50 drop-shadow-lg bg-yellow-300 md:h-16"
     >
-      <div class="mx-20 flex text-2xl items-center justify-center">
-        <img src="../assets/logo-light.png" class="h-8" />
-        <span class="h-8">😂</span>
-      </div>
-      <div class="flex">
-        <div
-          class="mx-10 transition ease-in-out hover:-translate-y-0.5 cursor-pointer"
-        >
-          <a href="../index.html">random joke 🔀</a>
+      <div
+        class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
+      >
+        <div class="h-16 flex items-center">
+          <img src="../assets/logo-light.png" class="h-8 w-auto" />
         </div>
         <div
-          class="mx-10 transition ease-in-out hover:-translate-y-0.5 cursor-pointer"
+          class="flex justify-center text-xl flex-col md:flex-row md:items-center md:text-base"
         >
-          submit a joke 📝
+          <div
+            class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center mx-10"
+          >
+            <a href="../index.html">random joke 🔀</a>
+          </div>
+          <div
+            class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center cursor-pointer mx-10 md:ml-0"
+          >
+            submit a joke 📝
+          </div>
         </div>
       </div>
-    </navbar>
-    <main class="flex items-center justify-center flex-col w-screen">
-      <form class="w-10/12">
-        <label class="w-full my-4">
-          All submitted jokes will be reviewed to ensure they are not duplicates
-          of existing jokes and are appropriate for the site.
-        </label>
-
+    </nav>
+    <main
+      class="flex items-center justify-center flex-col w-screen py-8 text-xl"
+    >
+      <form class="w-11/12 md:w-10/12">
+        <div class="w-full my-4">
+          * All submitted jokes will be reviewed to ensure they are not
+          duplicates of existing jokes and are appropriate for the site.
+        </div>
+        <div class="flex">
+          <span class="mr-1">Language :</span>
+          <div class="flex flex-col md:flex-row justify-center">
+            <label class="mx-6">
+              <input type="radio" name="language" /> മലയാളം
+            </label>
+            <label class="mx-6"
+              ><input type="radio" name="language" /> Manglish</label
+            >
+          </div>
+        </div>
         <textarea
           class="resize-y min-h-100 border-2 w-full my-4"
           placeholder="Write your joke here"
@@ -44,6 +61,21 @@
         </button>
       </form>
     </main>
-    <footer></footer>
+    <footer
+      class="bottom-0 flex justify-center w-screen shadow-3xl bg-yellow-300 py-8"
+    >
+      <div class="w-11/12 flex justify-between md:w-10/12">
+        <div class="w-1/2">
+          <img src="../assets/logo-light.png" class="w-full md:w-4/12" />
+        </div>
+        <div class="text-m">
+          <div>About</div>
+          <div>API</div>
+          <div>Contact</div>
+          <div>Docs</div>
+          <div>Submit a joke</div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
