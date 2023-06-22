@@ -35,12 +35,14 @@
     </nav>
     <main class="flex items-center flex-col w-screen py-8 text-xl min-h-1000">
       <div class="w-11/12 md:w-10/12">
-        <div class="border-2 rounded-3xl px-32 py-32 text-4xl">
-          The big huge gigantic joke will will be written and dispalyed here in
-          a fancy way probably. This is fancy indeed. it is still shorter than
-          what I expected. hence I will add more lines to make it longer
+        <div
+          class="border-2 rounded-3xl px-32 py-32 text-4xl"
+          id="joke-container"
+        >
+          joke here:
         </div>
       </div>
+      <button id="new-joke-btn">Get New Joke</button>
     </main>
     <footer
       class="bottom-0 flex justify-center w-screen shadow-3xl bg-yellow-300 py-8 h-52"
@@ -58,5 +60,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/fetchjoke.js"></script>
   </body>
 </html>
