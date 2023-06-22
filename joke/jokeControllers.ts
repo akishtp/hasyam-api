@@ -12,3 +12,14 @@ export const createJoke = async (req: Request, res: Response) => {
     return;
   }
 };
+
+export const getJoke = async (req: Request, res: Response) => {
+  try {
+    const _id = await Joke.estimatedDocumentCount();
+    const joke = await Joke.findById(Math.floor(Math.random() * _id));
+    res.status(200).json(joke);
+  } catch (error: any) {
+    res.status(400).json({ error: error.message });
+    return;
+  }
+};
