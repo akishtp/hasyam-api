@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+
+    <title>ഒരു തമാശ പറ</title>
+  </head>
+  <body>
+    <navbar
+      class="flex items-center justify-between h-16 bg-gray-50 drop-shadow-lg"
+    >
+      <div class="mx-20 flex text-2xl items-center justify-center">
+        <img src="../assets/logo-light.png" class="h-8" />
+        <span class="h-8">😂</span>
+      </div>
+      <div class="flex">
+        <div
+          class="mx-10 transition ease-in-out hover:-translate-y-0.5 cursor-pointer"
+        >
+          <a href="../index.html">random joke 🔀</a>
+        </div>
+        <div
+          class="mx-10 transition ease-in-out hover:-translate-y-0.5 cursor-pointer"
+        >
+          submit a joke 📝
+        </div>
+      </div>
+    </navbar>
+    <main class="flex items-center justify-center flex-col w-screen">
+      <form class="w-10/12">
+        <label class="w-full my-4">
+          All submitted jokes will be reviewed to ensure they are not duplicates
+          of existing jokes and are appropriate for the site.
+        </label>
+
+        <textarea
+          class="resize-y min-h-100 border-2 w-full my-4"
+          placeholder="Write your joke here"
+        ></textarea>
+        <button class="border-2 bg-blue-500 text-white rounded-md py-1 px-3">
+          Submit
+        </button>
+      </form>
+    </main>
+    <footer></footer>
+  </body>
+</html>
