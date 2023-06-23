@@ -9,3 +9,4 @@ const jokeSchema = new Schema({
 });
 
 module.exports = mongoose.model("Joke", jokeSchema);
+module.exports = mongoose.model("NotApproved", jokeSchema);
