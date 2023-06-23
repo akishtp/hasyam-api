@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
 const Joke = require("./jokeModel");
-const NotApproved = require("./notApprovedModel");
 
 export const createJoke = async (req: Request, res: Response) => {
   const { joke, language } = req.body;
   try {
     const _id = await Joke.estimatedDocumentCount();
-    const da_joke = await NotApproved.create({ joke, _id, language });
+    const da_joke = await Joke.create({ joke, _id, language });
     res.status(200).json(da_joke);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
