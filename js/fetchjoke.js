@@ -8,7 +8,7 @@ function fetchJoke() {
       const joke = data.joke;
 
       // Replace newline characters with two HTML line breaks
-      const formattedJoke = joke.replace(/\n/g, "<br><br>");
+      const formattedJoke = joke.replace(/\n/g, "<br>");
 
       // Display the joke on the webpage
       const jokeContainer = document.getElementById("joke-container");
