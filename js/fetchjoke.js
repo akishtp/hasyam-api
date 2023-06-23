@@ -7,9 +7,12 @@ function fetchJoke() {
       // Access the joke from the response data
       const joke = data.joke;
 
+      // Replace newline characters with two HTML line breaks
+      const formattedJoke = joke.replace(/\n/g, "<br><br>");
+
       // Display the joke on the webpage
       const jokeContainer = document.getElementById("joke-container");
-      jokeContainer.innerHTML = joke;
+      jokeContainer.innerHTML = formattedJoke;
     })
     .catch((error) => {
       console.error("Error:", error);

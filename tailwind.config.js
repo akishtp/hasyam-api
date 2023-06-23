@@ -7,6 +7,9 @@ module.exports = {
         100: "10rem",
         1000: "calc(100vh - 272px)",
       },
+      width: {
+        1000: "calc(100% - 80px)",
+      },
     },
   },
   plugins: [],
