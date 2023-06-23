@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 const Joke = require("./jokeModel");
-const NotApproved = require("./jokeModel");
+const NotApproved = require("./notApprovedModel");
 
 export const createJoke = async (req: Request, res: Response) => {
   const { joke, language } = req.body;
