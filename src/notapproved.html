@@ -93,7 +93,7 @@
               "bg-blue-500 hover:bg-blue-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500";
             approveButton.addEventListener("click", async () => {
               try {
-                await makePutRequest(item._id);
+                await makePutRequest(joke._id);
               } catch (error) {
                 console.log("PUT request error:", error);
               }
@@ -112,9 +112,9 @@
         });
 
       // Function to make the PUT request
-      async function makePutRequest(itemId) {
+      async function makePutRequest(_id) {
         // Construct the request URL with the itemId
-        const url = `https://api.example.com/items/${itemId}`;
+        const url = `https://hasyam-api.cyclic.app/api/joke/${_id}`;
 
         try {
           // Make the PUT request
@@ -123,7 +123,6 @@
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ data: "updated data" }), // Example payload, modify as needed
           });
 
           if (!response.ok) {
