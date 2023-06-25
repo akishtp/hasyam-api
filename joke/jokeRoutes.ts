@@ -1,5 +1,6 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import { createJoke, getJoke } from "./jokeControllers";
+const Joke = require("./jokeModel");
 
 const router = express.Router();
 
