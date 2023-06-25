@@ -41,7 +41,7 @@
         id="not-approved-container"
         class="w-screen flex items-center justify-center flex-col"
       ></div>
-      <label><input type="text" /></label>
+      <label><input type="text" id="secret-input" /></label>
     </main>
     <footer
       class="bottom-0 flex justify-center w-screen bg-yellow-300 py-8 h-28 items-center"
@@ -120,6 +120,7 @@
 
       // Function to make the PUT request
       async function makePutRequest(_id) {
+        var key = document.getElementById("secret-input").value;
         // Construct the request URL with the itemId
         const url = `https://hasyam-api.cyclic.app/api/joke/${_id}`;
 
@@ -129,6 +130,7 @@
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
+              key: `${key}`,
             },
           });
 

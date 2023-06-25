@@ -25,14 +25,24 @@ export const getJoke = async (req: Request, res: Response) => {
 };
 
 export const approveJoke = async (req: Request, res: Response) => {
-  const id = req.params.id;
-  try {
-    const foundJoke = await Joke.findById(id);
-    foundJoke.approved = true;
-    await foundJoke.save();
-    res.status(200).json(foundJoke);
-  } catch (error: any) {
-    res.status(400).json({ error: error.message });
+  const { key } = req.headers;
+  if (key !== process.env.ADMIN_KEY) {
+    res
+      .status(400)
+      .json({
+        error:
+          "you do not have the proper autheorisation to complete this action",
+      });
+  } else {
+    const id = req.params.id;
+    try {
+      const foundJoke = await Joke.findById(id);
+      foundJoke.approved = true;
+      await foundJoke.save();
+      res.status(200).json(foundJoke);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
   }
 };
 

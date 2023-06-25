@@ -81,31 +81,32 @@
       </div>
     </footer>
     <script>
-      document
-        .getElementById("myForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+      const form = document.getElementById("myForm");
 
-          var joke = document.getElementById("joke").value;
-          var language = document.querySelector(
-            'input[name="language"]:checked'
-          ).value;
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-          fetch("https://hasyam-api.cyclic.app/api/joke", {
-            method: "POST",
-            body: JSON.stringify({ joke, language }),
-            headers: {
-              "Content-Type": "application/json",
-            },
+        var joke = document.getElementById("joke").value;
+        var language = document.querySelector(
+          'input[name="language"]:checked'
+        ).value;
+
+        fetch("https://hasyam-api.cyclic.app/api/joke", {
+          method: "POST",
+          body: JSON.stringify({ joke, language }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            form.reset();
           })
-            .then((response) => response.json())
-            .then((data) => {
-              console.log(data);
-            })
-            .catch((error) => {
-              console.error(error);
-            });
-        });
+          .catch((error) => {
+            console.error(error);
+          });
+      });
     </script>
   </body>
 </html>
