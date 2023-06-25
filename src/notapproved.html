@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+
+    <title>Not Approved</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+  </head>
+  <body>
+    <nav
+      class="flex items-center justify-center bg-gray-50 drop-shadow-lg bg-yellow-300 md:h-16"
+    >
+      <div
+        class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
+      >
+        <div class="h-16 flex items-center">
+          <img src="../assets/logo-light.png" class="h-8 w-auto" />
+        </div>
+        <div
+          class="flex justify-center text-xl flex-col md:flex-row md:items-center md:text-base"
+        >
+          <div
+            class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center mx-10"
+          >
+            <a href="../index.html">random joke 🔀</a>
+          </div>
+          <div
+            class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center cursor-pointer mx-10 md:ml-0"
+          >
+            <a href="./submit.html">submit a joke 📝</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="flex items-center flex-col w-screen py-8 text-xl min-h-1000">
+      <div
+        id="not-approved-container"
+        class="w-screen flex items-center justify-center flex-col"
+      >
+        Slowiding
+      </div>
+    </main>
+    <footer
+      class="bottom-0 flex justify-center w-screen bg-yellow-300 py-8 h-28 items-center"
+    >
+      <div
+        class="w-11/12 flex justify-between flex-col items-center md:w-10/12 md:flex-row"
+      >
+        <div class="w-1/2 hidden md:block">
+          <img src="../assets/logo-light.png" class="w-full md:w-4/12" />
+        </div>
+        <div class="text-m flex md\:flex-row">
+          <div class="px-2">About</div>
+          <div class="px-2">API</div>
+          <div class="px-2">Contact</div>
+          <div class="px-2">Docs</div>
+          <div class="px-2">Submit a joke</div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const notApprovedContainer = document.getElementById(
+        "not-approved-container"
+      );
+
+      // Display loading text
+      notApprovedContainer.textContent = "Loading...";
+
+      // Fetch data from the API
+      fetch("https://hasyam-api.cyclic.app/api/joke/notapproved")
+        .then((response) => response.json())
+        .then((data) => {
+          // Clear loading text
+          notApprovedContainer.textContent = "";
+
+          // Iterate through the array of items
+          data.forEach((joke) => {
+            // Create a div element for each item
+            const notApprovedJoke = document.createElement("div");
+            notApprovedJoke.className =
+              "text-base w-11/12 flex justify-between items-start border-2 rounded-2xl py-4 px-8 my-2 text-lg shadow-lg shadow-neutral-300 md:w-10/12 md:px-8";
+
+            const theJoke = document.createElement("div");
+            theJoke.className = "w-5/6";
+            theJoke.textContent = joke.joke;
+
+            // Create a button for each item
+            const approveButton = document.createElement("button");
+            approveButton.textContent = "👍";
+            approveButton.className =
+              "bg-blue-500 hover:bg-blue-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500";
+            approveButton.addEventListener("click", async () => {
+              try {
+                await makePutRequest(item._id);
+              } catch (error) {
+                console.log("PUT request error:", error);
+              }
+            });
+            notApprovedJoke.appendChild(theJoke);
+            notApprovedJoke.appendChild(approveButton);
+            // Append the div to the container
+            notApprovedContainer.appendChild(notApprovedJoke);
+          });
+        })
+        .catch((error) => {
+          // Display error message
+          notApprovedContainer.textContent =
+            "Error occurred while fetching data.";
+          console.log(error);
+        });
+
+      // Function to make the PUT request
+      async function makePutRequest(itemId) {
+        // Construct the request URL with the itemId
+        const url = `https://api.example.com/items/${itemId}`;
+
+        try {
+          // Make the PUT request
+          const response = await fetch(url, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ data: "updated data" }), // Example payload, modify as needed
+          });
+
+          if (!response.ok) {
+            throw new Error("PUT request failed");
+          }
+
+          const data = await response.json();
+          console.log("PUT request successful:", data);
+          // Handle the response data as needed
+        } catch (error) {
+          console.log("PUT request error:", error);
+          throw error;
+        }
+      }
+    </script>
+  </body>
+</html>

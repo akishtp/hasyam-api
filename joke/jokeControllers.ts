@@ -1,4 +1,3 @@
-import { error } from "console";
 import { Request, Response } from "express";
 const Joke = require("./jokeModel");
 
