@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../dist/output.css" rel="stylesheet" />
 
-    <title>ഒരു തമാശ പറ</title>
+    <title>API</title>
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
   </head>
   <body>
@@ -36,36 +36,7 @@
     </nav>
     <main
       class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000"
-    >
-      <form class="w-11/12 md:w-10/12" id="myForm">
-        <div class="w-full my-4">
-          * All submitted jokes will be reviewed to ensure they are not
-          duplicates of existing jokes and are appropriate for the site.
-        </div>
-        <div class="flex my-4 md:my-0">
-          <span class="mr-1 w-1/2 md:w-auto">Language:</span>
-          <div class="flex flex-col md:flex-row justify-center w-1/2 md:w-auto">
-            <label class="mx-6">
-              <input type="radio" name="language" value="Malayalam" /> മലയാളം
-            </label>
-            <label class="mx-6"
-              ><input type="radio" name="language" value="Manglish" />
-              Manglish</label
-            >
-          </div>
-        </div>
-        <textarea
-          class="resize-y min-h-100 border-2 w-full my-4"
-          placeholder="Write your joke here"
-          id="joke"
-        ></textarea>
-        <button
-          class="border-2 bg-blue-500 text-white rounded-md py-1 px-3 hover:bg-blue-600"
-        >
-          Submit
-        </button>
-      </form>
-    </main>
+    ></main>
     <footer
       class="bottom-0 flex justify-center w-screen bg-yellow-300 py-8 h-28 items-center"
     >
@@ -86,33 +57,5 @@
         </div>
       </div>
     </footer>
-    <script>
-      const form = document.getElementById("myForm");
-
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        var joke = document.getElementById("joke").value;
-        var language = document.querySelector(
-          'input[name="language"]:checked'
-        ).value;
-
-        fetch("https://hasyam-api.cyclic.app/api/joke", {
-          method: "POST",
-          body: JSON.stringify({ joke, language }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            form.reset();
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      });
-    </script>
   </body>
 </html>

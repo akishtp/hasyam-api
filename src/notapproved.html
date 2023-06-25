@@ -54,10 +54,12 @@
         </div>
         <div class="text-m flex md\:flex-row">
           <div class="px-2">About</div>
-          <div class="px-2">API</div>
+          <div class="px-2"><a href="./API.html">API</a></div>
           <div class="px-2">Contact</div>
           <div class="px-2">Docs</div>
-          <div class="px-2">Submit a joke</div>
+          <div class="px-2">
+            <a href="./notapproved.html">Not Approved(yet)</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -91,7 +93,7 @@
             const approveButton = document.createElement("button");
             approveButton.textContent = "👍";
             approveButton.className =
-              "bg-blue-500 hover:bg-blue-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500";
+              "bg-blue-500 hover:bg-blue-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500 w-1/6";
             approveButton.addEventListener("click", async () => {
               approveButton.textContent = "Loading...";
               try {
