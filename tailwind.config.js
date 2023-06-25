@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       minHeight: {
         100: "10rem",
+        144: "calc(100vh - 256px)",
         1000: "calc(100vh - 176px)",
       },
       width: {

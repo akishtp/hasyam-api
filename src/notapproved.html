@@ -34,13 +34,14 @@
         </div>
       </div>
     </nav>
-    <main class="flex items-center flex-col w-screen py-8 text-xl min-h-1000">
+    <main
+      class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000"
+    >
       <div
         id="not-approved-container"
         class="w-screen flex items-center justify-center flex-col"
-      >
-        Slowiding
-      </div>
+      ></div>
+      <label><input type="text" /></label>
     </main>
     <footer
       class="bottom-0 flex justify-center w-screen bg-yellow-300 py-8 h-28 items-center"
@@ -84,7 +85,7 @@
 
             const theJoke = document.createElement("div");
             theJoke.className = "w-5/6";
-            theJoke.textContent = joke.joke;
+            theJoke.textContent = joke.joke + `(${joke.language})`;
 
             // Create a button for each item
             const approveButton = document.createElement("button");
@@ -92,10 +93,16 @@
             approveButton.className =
               "bg-blue-500 hover:bg-blue-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500";
             approveButton.addEventListener("click", async () => {
+              approveButton.textContent = "Loading...";
               try {
+                // Make the PUT request with the item's _id as a parameter
                 await makePutRequest(joke._id);
+                // Remove the itemDiv after successful PUT request
+                notApprovedJoke.remove();
               } catch (error) {
                 console.log("PUT request error:", error);
+                // Restore button text on error
+                approveButton.textContent = "Click Me";
               }
             });
             notApprovedJoke.appendChild(theJoke);

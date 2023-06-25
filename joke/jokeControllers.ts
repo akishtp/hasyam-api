@@ -30,6 +30,7 @@ export const approveJoke = async (req: Request, res: Response) => {
     const foundJoke = await Joke.findById(id);
     foundJoke.approved = true;
     await foundJoke.save();
+    res.status(200).json(foundJoke);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
