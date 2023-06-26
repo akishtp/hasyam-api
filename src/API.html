@@ -37,54 +37,86 @@
     <main
       class="flex flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000 md:flex-row"
     >
-      <div class="w-1/4 text-lg px-4">
+      <div class="w-screen text-lg pl-4 md:w-1/4">
         <div class="text-xl text-neutral-600">API</div>
         <div
-          class="px-4 h-10 rounded-lg flex items-center hover:underline decoration-2"
+          class="pl-4 min-h-10 rounded-lg flex items-center hover:underline decoration-2"
         >
-          Calling the API
+          <a href="#call">Calling the API</a>
         </div>
-        <div class="mx-8 px-2 border-l-2 border-black">
+        <div class="ml-8 mr-4 pl-2 border-l-2 border-black">
           <div
-            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
           >
-            Authentication
+            <a href="#authentication">Authentication</a>
           </div>
           <div
-            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
           >
-            API response format
+            <a href="#response-format">Response Format</a>
+          </div>
+          <div
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
+          >
+            <a href="#usage-limits">Usage Limits</a>
           </div>
         </div>
         <div
-          class="px-4 h-10 rounded-lg flex items-center hover:underline decoration-2"
+          class="pl-4 min-h-10 rounded-lg flex items-center hover:underline decoration-2"
         >
-          Endpoints
+          <a href="#endpoints">Endpoints</a>
         </div>
-        <div class="mx-8 px-2 border-l-2 border-black">
+        <div class="ml-8 mr-4 pl-2 border-l-2 border-black">
           <div
-            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
           >
-            Fetch all Jokes
+            <a href="#fetch-all">Fetch all Jokes</a>
           </div>
           <div
-            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
           >
-            Fetch a random Joke
+            <a href="#fetch-random">Fetch a Random Joke</a>
           </div>
           <div
-            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
           >
-            Fetch only Malayalam Jokes
+            <a href="#fetch-malayalam">Fetch only Malayalam Jokes</a>
           </div>
           <div
-            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
           >
-            Fetch only Manglish Jokes
+            <a href="#fetch-manglish">Fetch only Manglish Jokes</a>
           </div>
         </div>
       </div>
-      <div class="w-3/4 bg-blue-500">The Content itself</div>
+      <div class="w-3/4">
+        <div class="text-2xl font-bold text-neutral-700">API</div>
+        <div class="text-base">A line about the API maybe welcome</div>
+        <div class="text-2xl font-bold my-8" id="call">Calling the API</div>
+        <div class="text-xl font-semibold my-4" id="authentication">
+          Authentication
+        </div>
+        <div class="text-base">No nedd</div>
+        <div class="text-xl font-semibold my-4" id="response-format">
+          Response Format
+        </div>
+        <div class="text-base">id , joke, language</div>
+        <div class="text-xl font-semibold my-4" id="usage-limits">
+          Usage limit
+        </div>
+        <div class="text-base">id , joke, language</div>
+        <div class="text-2xl font-bold my-8" id="endpoints">Endpoints</div>
+        <div class="text-xl font-semibold my-4" id="fetch-all">Fetch all</div>
+        <div class="text-xl font-semibold my-4" id="fetch-random">
+          Fetch random
+        </div>
+        <div class="text-xl font-semibold my-4" id="fetch-malayalam">
+          Fetch Mal
+        </div>
+        <div class="text-xl font-semibold my-4" id="fetch-manglish">
+          Fetch Mang
+        </div>
+      </div>
     </main>
     <footer
       class="bottom-0 flex justify-center w-screen bg-neutral-100 py-8 h-28 items-center"
