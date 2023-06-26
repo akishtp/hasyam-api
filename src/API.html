@@ -127,15 +127,39 @@
         </div>
         <div class="text-2xl font-bold my-8" id="endpoints">Endpoints</div>
         <div class="text-xl font-semibold my-4" id="fetch-all">Fetch all</div>
+        <div class="text-base">Fetch all</div>
         <div class="text-xl font-semibold my-4" id="fetch-random">
           Fetch random
+        </div>
+        <div class="text-base">
+          <p class="text-gray-700 mb-2">
+            This endpoint retrieves a random Malayalam joke.
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li><strong>Endpoint:</strong> <code>/jokes/random</code></li>
+            <li><strong>Method:</strong> GET</li>
+          </ul>
+          <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
+          <pre
+            class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
+          >
+<code class="language-json">
+{
+  "id": 1,
+  "category": "category1",
+  "joke": "Joke 1"
+}
+</code>
+</pre>
         </div>
         <div class="text-xl font-semibold my-4" id="fetch-malayalam">
           Fetch Mal
         </div>
+        <div class="text-base">Fetch malayalam</div>
         <div class="text-xl font-semibold my-4" id="fetch-manglish">
           Fetch Mang
         </div>
+        <div class="text-base">Fetch manglish</div>
       </div>
     </main>
     <footer

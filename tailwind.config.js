@@ -10,6 +10,7 @@ module.exports = {
       },
       width: {
         1000: "calc(100% - 80px)",
+        42: "calc(100% - 128px)",
       },
     },
   },

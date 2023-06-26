@@ -52,18 +52,6 @@ export const approveJoke = async (req: Request, res: Response) => {
   }
 };
 
-export const tempRoller = async (req: Request, res: Response) => {
-  try {
-    const updatedItems = await Joke.updateMany(
-      { language: "malayalam" },
-      { $set: { language: "Malayalam" } }
-    );
-    res.status(200).json({ message: "Records updated successfully" });
-  } catch (error: any) {
-    res.status(400).json({ error: error.message });
-  }
-};
-
 export const notApproved = async (req: Request, res: Response) => {
   Joke.find({ approved: false })
     .then((jokes: any) => {

@@ -7,13 +7,11 @@ import {
   getMalayalamJokes,
   getManglishJokes,
   notApproved,
-  tempRoller,
 } from "./jokeControllers";
 
 const router = express.Router();
 
-// router.get("/", getAllJokes);
-router.get("/", tempRoller);
+router.get("/", getAllJokes);
 router.post("/", createJoke);
 router.get("/random", getJoke);
 router.get("/notapproved", notApproved);
