@@ -10,7 +10,7 @@
   </head>
   <body>
     <nav
-      class="flex items-center justify-center bg-gray-50 drop-shadow-lg bg-yellow-300 md:h-16"
+      class="flex items-center justify-center bg-gray-50 drop-shadow-lg md:h-16"
     >
       <div
         class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
@@ -35,10 +35,59 @@
       </div>
     </nav>
     <main
-      class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000"
-    ></main>
+      class="flex flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000 md:flex-row"
+    >
+      <div class="w-1/4 text-lg px-4">
+        <div class="text-xl text-neutral-600">API</div>
+        <div
+          class="px-4 h-10 rounded-lg flex items-center hover:underline decoration-2"
+        >
+          Calling the API
+        </div>
+        <div class="mx-8 px-2 border-l-2 border-black">
+          <div
+            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+          >
+            Authentication
+          </div>
+          <div
+            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+          >
+            API response format
+          </div>
+        </div>
+        <div
+          class="px-4 h-10 rounded-lg flex items-center hover:underline decoration-2"
+        >
+          Endpoints
+        </div>
+        <div class="mx-8 px-2 border-l-2 border-black">
+          <div
+            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+          >
+            Fetch all Jokes
+          </div>
+          <div
+            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+          >
+            Fetch a random Joke
+          </div>
+          <div
+            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+          >
+            Fetch only Malayalam Jokes
+          </div>
+          <div
+            class="h-10 rounded-lg px-2 flex items-center hover:bg-neutral-100"
+          >
+            Fetch only Manglish Jokes
+          </div>
+        </div>
+      </div>
+      <div class="w-3/4 bg-blue-500">The Content itself</div>
+    </main>
     <footer
-      class="bottom-0 flex justify-center w-screen bg-yellow-300 py-8 h-28 items-center"
+      class="bottom-0 flex justify-center w-screen bg-neutral-100 py-8 h-28 items-center"
     >
       <div
         class="w-11/12 flex justify-between flex-col items-center md:w-10/12 md:flex-row"
@@ -48,9 +97,8 @@
         </div>
         <div class="text-m flex md\:flex-row">
           <div class="px-2">About</div>
-          <div class="px-2"><a href="./API.html">API</a></div>
+          <div class="px-2"><a href="./api.html">API</a></div>
           <div class="px-2">Contact</div>
-          <div class="px-2">Docs</div>
           <div class="px-2">
             <a href="./notapproved.html">Not Approved(yet)</a>
           </div>
