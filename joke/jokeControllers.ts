@@ -64,7 +64,7 @@ export const notApproved = async (req: Request, res: Response) => {
 
 export const getMalayalamJokes = async (req: Request, res: Response) => {
   try {
-    const jokes = await Joke.find({ approved: true, language: "malayalam" });
+    const jokes = await Joke.find({ approved: true, language: "Malayalam" });
     res.status(200).json(jokes);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
@@ -73,7 +73,7 @@ export const getMalayalamJokes = async (req: Request, res: Response) => {
 
 export const getManglishJokes = async (req: Request, res: Response) => {
   try {
-    const jokes = await Joke.find({ approved: true, language: "manglish" });
+    const jokes = await Joke.find({ approved: true, language: "Manglish" });
     res.status(200).json(jokes);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
