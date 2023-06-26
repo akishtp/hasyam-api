@@ -96,7 +96,7 @@
           'input[name="language"]:checked'
         ).value;
 
-        fetch("https://hasyam-api.cyclic.app/api/joke", {
+        fetch("https://hasyam-api.cyclic.app/", {
           method: "POST",
           body: JSON.stringify({ joke, language }),
           headers: {

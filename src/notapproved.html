@@ -71,7 +71,7 @@
       notApprovedContainer.textContent = "Loading...";
 
       // Fetch data from the API
-      fetch("https://hasyam-api.cyclic.app/api/joke/notapproved")
+      fetch("https://hasyam-api.cyclic.app/notapproved")
         .then((response) => response.json())
         .then((data) => {
           // Clear loading text
@@ -123,7 +123,7 @@
       async function makePutRequest(_id) {
         var key = document.getElementById("secret-input").value;
         // Construct the request URL with the itemId
-        const url = `https://hasyam-api.cyclic.app/api/joke/${_id}`;
+        const url = `https://hasyam-api.cyclic.app/${_id}`;
 
         try {
           // Make the PUT request

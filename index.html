@@ -82,9 +82,7 @@
       async function fetchJoke() {
         try {
           // Make a request to your API endpoint
-          const response = await fetch(
-            "https://hasyam-api.cyclic.app/api/joke"
-          );
+          const response = await fetch("https://hasyam-api.cyclic.app/random");
           const data = await response.json();
 
           // Access the joke from the response data

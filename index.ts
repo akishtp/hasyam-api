@@ -17,11 +17,7 @@ app.options("*", cors());
 
 app.use(express.json());
 
-app.use("/api/joke", jokeRoutes);
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("ശുദ്ധ ഹാസ്യം മരിച്ചിട്ടില്ല");
-});
+app.use("/", jokeRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, {

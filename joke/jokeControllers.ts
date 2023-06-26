@@ -1,6 +1,17 @@
 import { Request, Response } from "express";
 const Joke = require("./jokeModel");
 
+export const getAllJoke = async (req: Request, res: Response) => {
+  try {
+    const joke = await Joke.find({ approved: true });
+    res
+      .status(200)
+      .json({ _id: joke._id, joke: joke.joke, language: joke.language });
+  } catch (error: any) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 export const createJoke = async (req: Request, res: Response) => {
   const { joke, language } = req.body;
   try {
@@ -27,12 +38,9 @@ export const getJoke = async (req: Request, res: Response) => {
 export const approveJoke = async (req: Request, res: Response) => {
   const { key } = req.headers;
   if (key !== process.env.ADMIN_KEY) {
-    res
-      .status(400)
-      .json({
-        error:
-          "you do not have the proper autheorisation to complete this action",
-      });
+    res.status(400).json({
+      error: "you do not have the proper authorization to complete this action",
+    });
   } else {
     const id = req.params.id;
     try {

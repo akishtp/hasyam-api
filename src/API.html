@@ -35,9 +35,9 @@
       </div>
     </nav>
     <main
-      class="flex flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000 md:flex-row"
+      class="flex flex-col items-center w-screen py-8 text-xl min-h-144 md:min-h-1000 md:flex-row md:items-start"
     >
-      <div class="w-screen text-lg pl-4 md:w-1/4">
+      <div class="w-11/12 text-lg pl-4 md:w-1/4">
         <div class="text-xl text-neutral-600">API</div>
         <div
           class="pl-4 min-h-10 rounded-lg flex items-center hover:underline decoration-2"
@@ -89,22 +89,42 @@
           </div>
         </div>
       </div>
-      <div class="w-3/4">
+      <div class="w-11/12 md:3/4">
         <div class="text-2xl font-bold text-neutral-700">API</div>
-        <div class="text-base">A line about the API maybe welcome</div>
+        <div class="text-base">
+          ശുദ്ധ ഹാസ്യം മരിച്ചിട്ടില്ല (Pure comedy is not dead). Get Malayalam,
+          Manglish or a Random joke
+        </div>
         <div class="text-2xl font-bold my-8" id="call">Calling the API</div>
         <div class="text-xl font-semibold my-4" id="authentication">
           Authentication
         </div>
-        <div class="text-base">No nedd</div>
+        <div class="text-base">
+          No authentication is required to use the API. Enjoy :)
+        </div>
         <div class="text-xl font-semibold my-4" id="response-format">
           Response Format
         </div>
-        <div class="text-base">id , joke, language</div>
+        <div class="text-base">
+          <ul class="list-disc">
+            The response from the API will be in JSON format. Each joke object
+            will contain the following properties:
+            <li class="mx-6">_id : The unique identifier of the joke.</li>
+            <li class="mx-6">joke : The text of the joke.</li>
+            <li class="mx-6">language : The language of the joke.</li>
+          </ul>
+        </div>
         <div class="text-xl font-semibold my-4" id="usage-limits">
           Usage limit
         </div>
-        <div class="text-base">id , joke, language</div>
+        <div class="text-base">
+          <ul class="list-disc">
+            To prevent abuse and ensure fair usage, the API imposes the
+            following limits:
+            <li class="mx-6">Requests per minute: 100,</li>
+            <li class="mx-6">Requests per day: 1000.</li>
+          </ul>
+        </div>
         <div class="text-2xl font-bold my-8" id="endpoints">Endpoints</div>
         <div class="text-xl font-semibold my-4" id="fetch-all">Fetch all</div>
         <div class="text-xl font-semibold my-4" id="fetch-random">
