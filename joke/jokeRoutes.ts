@@ -11,7 +11,8 @@ import {
 
 const router = express.Router();
 
-router.get("/", getAllJokes);
+// router.get("/", getAllJokes);
+router.get("/", tempRoller);
 router.post("/", createJoke);
 router.get("/random", getJoke);
 router.get("/notapproved", notApproved);
