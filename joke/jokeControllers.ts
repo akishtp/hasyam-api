@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 const Joke = require("./jokeModel");
 
-export const getAllJoke = async (req: Request, res: Response) => {
+export const getAllJokes = async (req: Request, res: Response) => {
   try {
     const joke = await Joke.find({ approved: true });
     res
@@ -62,4 +62,26 @@ export const notApproved = async (req: Request, res: Response) => {
     .catch((error: any) => {
       res.status(400).json({ error: error });
     });
+};
+
+export const getMalayalamJokes = async (req: Request, res: Response) => {
+  try {
+    const joke = await Joke.find({ approved: true, language: "malayalam" });
+    res
+      .status(200)
+      .json({ _id: joke._id, joke: joke.joke, language: joke.language });
+  } catch (error: any) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+export const getManglishJokes = async (req: Request, res: Response) => {
+  try {
+    const joke = await Joke.find({ approved: true, language: "manglish" });
+    res
+      .status(200)
+      .json({ _id: joke._id, joke: joke.joke, language: joke.language });
+  } catch (error: any) {
+    res.status(400).json({ error: error.message });
+  }
 };
