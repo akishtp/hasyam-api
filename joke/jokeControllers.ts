@@ -3,10 +3,8 @@ const Joke = require("./jokeModel");
 
 export const getAllJokes = async (req: Request, res: Response) => {
   try {
-    const joke = await Joke.find({ approved: true });
-    res
-      .status(200)
-      .json({ _id: joke._id, joke: joke.joke, language: joke.language });
+    const jokes = await Joke.find({ approved: true });
+    res.status(200).json(jokes);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
