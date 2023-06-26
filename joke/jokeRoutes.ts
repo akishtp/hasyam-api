@@ -7,6 +7,7 @@ import {
   getMalayalamJokes,
   getManglishJokes,
   notApproved,
+  tempRoller,
 } from "./jokeControllers";
 
 const router = express.Router();
