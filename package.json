@@ -1,6 +1,6 @@
 {
   "name": "hasyam-api",
-  "version": "0.0.1",
+  "version": "1",
   "description": "A ശുദ്ധ ഹാസ്യം (Pure Comedy) API",
   "main": "index.ts",
   "scripts": {
