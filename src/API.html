@@ -127,18 +127,111 @@
         </div>
         <div class="text-2xl font-bold my-8" id="endpoints">Endpoints</div>
         <div class="text-xl font-semibold my-4" id="fetch-all">Fetch all</div>
-        <div class="text-base">Fetch all</div>
+        <div class="text-base">
+          <p class="text-gray-700 mb-2">
+            This endpoint retrieves all jokes(approved) from the API.
+          </p>
+          <div>Endpoint:</div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/
+          </div>
+          <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
+          <pre
+            class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
+          >
+<code class="language-json">
+{
+  "id": 1,
+  "joke": "അമ്മാവൻ:ഡും ഡും...",
+  "language": "Malayalam"
+},
+{
+  "id": 2,
+  "joke": "സർദാർജി അമേരിക്കയിൽ പോയി ✈️...",
+  "language": "Malayalam"
+}
+</code>
+</pre>
+        </div>
         <div class="text-xl font-semibold my-4" id="fetch-random">
           Fetch random
         </div>
         <div class="text-base">
           <p class="text-gray-700 mb-2">
-            This endpoint retrieves a random Malayalam joke.
+            This endpoint retrieves a Random joke.
           </p>
-          <ul class="list-disc pl-6 mb-4">
-            <li><strong>Endpoint:</strong> <code>/jokes/random</code></li>
-            <li><strong>Method:</strong> GET</li>
-          </ul>
+          <div>Endpoint:</div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/random
+          </div>
+          <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
+          <pre
+            class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
+          >
+<code class="language-json">
+{
+  "id": 32,
+  "joke": "എതു തരം അപ്പത്തിനാണ് വട്ട് ?",
+  "language": "Malayalam"
+}
+</code>
+</pre>
+        </div>
+        <div class="text-xl font-semibold my-4" id="fetch-malayalam">
+          Fetch Malayalam
+        </div>
+
+        <div class="text-base">
+          <p class="text-gray-700 mb-2">
+            This endpoint retrieves Malayalam jokes. probably why you want this
+            API.
+          </p>
+          <div>Endpoints:</div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/malayalam
+          </div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/malayalam/random
+          </div>
+          <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
+          <pre
+            class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
+          >
+<code class="language-json">
+{
+  "id": 1,
+  "joke": "അമ്മാവൻ:ഡും ഡും...",
+  "language": "Malayalam"
+},
+{
+  "id": 2,
+  "joke": "സർദാർജി അമേരിക്കയിൽ പോയി ✈️...",
+  "language": "Malayalam"
+}
+</code>
+</pre>
+        </div>
+        <div class="text-xl font-semibold my-4" id="fetch-manglish">
+          Fetch Mang
+        </div>
+        <div class="text-base">
+          <p class="text-gray-700 mb-2">
+            This endpoint retrieves a random joke.
+          </p>
+          <div>Endpoint:</div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/
+          </div>
           <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
           <pre
             class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
@@ -152,14 +245,6 @@
 </code>
 </pre>
         </div>
-        <div class="text-xl font-semibold my-4" id="fetch-malayalam">
-          Fetch Mal
-        </div>
-        <div class="text-base">Fetch malayalam</div>
-        <div class="text-xl font-semibold my-4" id="fetch-manglish">
-          Fetch Mang
-        </div>
-        <div class="text-base">Fetch manglish</div>
       </div>
     </main>
     <footer

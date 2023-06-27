@@ -71,10 +71,42 @@ export const getMalayalamJokes = async (req: Request, res: Response) => {
   }
 };
 
+export const getRandomMalayalamJokes = async (req: Request, res: Response) => {
+  try {
+    const count = await Joke.countDocuments({
+      approved: true,
+      language: "Malayalam",
+    }).exec();
+    const randomIndex = Math.floor(Math.random() * count);
+    const joke = await Joke.findOne({ approved: true })
+      .skip(randomIndex)
+      .exec();
+    res.status(200).json(joke);
+  } catch (error: any) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 export const getManglishJokes = async (req: Request, res: Response) => {
   try {
     const jokes = await Joke.find({ approved: true, language: "Manglish" });
     res.status(200).json(jokes);
+  } catch (error: any) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+export const getRandomManglishJokes = async (req: Request, res: Response) => {
+  try {
+    const count = await Joke.countDocuments({
+      approved: true,
+      language: "Manglish",
+    }).exec();
+    const randomIndex = Math.floor(Math.random() * count);
+    const joke = await Joke.findOne({ approved: true })
+      .skip(randomIndex)
+      .exec();
+    res.status(200).json(joke);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
   }

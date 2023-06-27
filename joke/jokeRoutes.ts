@@ -6,6 +6,8 @@ import {
   getJoke,
   getMalayalamJokes,
   getManglishJokes,
+  getRandomMalayalamJokes,
+  getRandomManglishJokes,
   notApproved,
 } from "./jokeControllers";
 
@@ -17,6 +19,8 @@ router.get("/random", getJoke);
 router.get("/notapproved", notApproved);
 router.put("/:id", approveJoke);
 router.get("/malayalam", getMalayalamJokes);
+router.get("/malayalam/random", getRandomMalayalamJokes);
 router.get("/manglish", getManglishJokes);
+router.get("/manglish/random", getRandomManglishJokes);
 
 module.exports = router;
