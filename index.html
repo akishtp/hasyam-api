@@ -35,13 +35,14 @@
       </div>
     </nav>
     <main
-      class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000"
+      class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000 main"
+      id="main"
     >
       <div
         class="w-11/12 flex flex-col items-end my-16 md:w-10/12 md:flex-row md:items-start"
       >
         <div
-          class="border-2 rounded-3xl py-10 px-8 text-lg shadow-lg shadow-black w-full md:w-1000 md:py-28 md:px-20 md:text-4xl"
+          class="border-2 rounded-3xl py-10 px-8 text-lg shadow-lg shadow-black w-full md:w-1000 md:py-28 md:px-20 md:text-4xl joke-container"
           id="joke-container"
         >
           Loading Joke...
@@ -107,5 +108,6 @@
       newJokeBtn.addEventListener("click", fetchJoke);
       window.addEventListener("load", fetchJokeOnLoadAndRefresh);
     </script>
+    <script src="./main.js"></script>
   </body>
 </html>
