@@ -127,41 +127,15 @@
         </div>
         <div class="text-2xl font-bold my-8" id="endpoints">Endpoints</div>
         <div class="text-xl font-semibold my-4" id="fetch-all">Fetch all</div>
-        <div class="text-base">
-          <p class="text-gray-700 mb-2">
-            This endpoint retrieves all jokes(approved) from the API.
-          </p>
-          <div>Endpoint:</div>
-          <div
-            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
-          >
-            https://hasyam-api.cyclic.app/
-          </div>
-          <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
-          <pre
-            class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
-          >
-<code class="language-json">
-{
-  "id": 1,
-  "joke": "അമ്മാവൻ:ഡും ഡും...",
-  "language": "Malayalam"
-},
-{
-  "id": 2,
-  "joke": "സർദാർജി അമേരിക്കയിൽ പോയി ✈️...",
-  "language": "Malayalam"
-}
-</code>
-</pre>
-        </div>
+        <div class="text-base">Fetch all</div>
         <div class="text-xl font-semibold my-4" id="fetch-random">
           Fetch random
         </div>
         <div class="text-base">
           <p class="text-gray-700 mb-2">
-            This endpoint retrieves a Random joke.
+            This endpoint retrieves a random Malayalam joke.
           </p>
+          <<<<<<< HEAD
           <div>Endpoint:</div>
           <div
             class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
@@ -220,17 +194,22 @@
 </pre>
         </div>
         <div class="text-xl font-semibold my-4" id="fetch-manglish">
-          Fetch Mang
+          Fetch Manglish
         </div>
         <div class="text-base">
           <p class="text-gray-700 mb-2">
-            This endpoint retrieves a random joke.
+            This endpoint retrieves Manglish jokes.
           </p>
-          <div>Endpoint:</div>
+          <div>Endpoints:</div>
           <div
             class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
           >
-            https://hasyam-api.cyclic.app/
+            https://hasyam-api.cyclic.app/manglish
+          </div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/manglish/random
           </div>
           <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
           <pre
@@ -238,9 +217,14 @@
           >
 <code class="language-json">
 {
-  "id": 1,
-  "category": "category1",
-  "joke": "Joke 1"
+  "id": 64981318a724d0ce987b5296,
+  "joke": "Suresh vazhiyiloode pokumbol oru 2000...",
+  "language": "Manglish"
+},
+{
+  "id": 64984acf085ca11aae549b2a,
+  "joke": "Gandhiji odicha car eth...",
+  "language": "Manglish"
 }
 </code>
 </pre>
