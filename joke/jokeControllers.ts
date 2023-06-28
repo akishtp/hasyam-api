@@ -13,6 +13,9 @@ export const getAllJokes = async (req: Request, res: Response) => {
 export const createJoke = async (req: Request, res: Response) => {
   const { joke, language } = req.body;
   try {
+    if (joke === null) {
+      throw Error("Please type in your joke before submitting next time");
+    }
     const da_joke = await Joke.create({ joke, language });
     res.status(200).json(da_joke);
   } catch (error: any) {
