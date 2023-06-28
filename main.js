@@ -909,13 +909,17 @@
   // js.js
   var import_downloadjs = __toESM(require_download());
   var elems = [".joke-container"];
-  elems.forEach((elem, ind) => {
-    const node = document.querySelector(elem);
-    toPng(node).then(function(dataUrl) {
-      (0, import_downloadjs.default)(dataUrl, "my-node.png");
-    }).catch(function(error) {
-      console.error("oops, something went wrong!");
-      console.log(error);
+  function downloadImage() {
+    elems.forEach((elem, ind) => {
+      const node = document.querySelector(elem);
+      toPng(node).then(function(dataUrl) {
+        (0, import_downloadjs.default)(dataUrl, "my-node.png");
+      }).catch(function(error) {
+        console.error("oops, something went wrong!");
+        console.log(error);
+      });
     });
-  });
+  }
+  var screenshotButton = document.getElementById("screenshot-btn");
+  screenshotButton.addEventListener("click", downloadImage);
 })();
