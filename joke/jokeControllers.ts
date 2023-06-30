@@ -121,7 +121,8 @@ export const deleteJoke = async (req: Request, res: Response) => {
     if (!joke) {
       throw Error("Joke does not exist");
     }
-    await joke.remove();
+    await joke.deleteOne();
+
     res.json({ message: "Joke deleted" });
   } catch (error: any) {
     res.status(404).json({ error: error.message });
