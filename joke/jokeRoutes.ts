@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import {
   approveJoke,
   createJoke,
+  deleteJoke,
   getAllJokes,
   getJoke,
   getMalayalamJokes,
@@ -22,5 +23,6 @@ router.get("/malayalam", getMalayalamJokes);
 router.get("/malayalam/random", getRandomMalayalamJokes);
 router.get("/manglish", getManglishJokes);
 router.get("/manglish/random", getRandomManglishJokes);
+router.delete("/delete/:id", deleteJoke);
 
 module.exports = router;

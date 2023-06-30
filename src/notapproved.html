@@ -94,7 +94,7 @@
             approveButton.className =
               "bg-blue-500 hover:bg-blue-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500 w-1/6";
             approveButton.addEventListener("click", async () => {
-              approveButton.textContent = "Loading...";
+              approveButton.textContent = "⊗";
               try {
                 // Make the PUT request with the item's _id as a parameter
                 await makePutRequest(joke._id);
@@ -103,10 +103,29 @@
               } catch (error) {
                 console.log("PUT request error:", error);
                 // Restore button text on error
-                approveButton.textContent = "Click Me";
+                approveButton.textContent = "👍";
+              }
+            });
+
+            const disapproveButton = document.createElement("button");
+            disapproveButton.textContent = "👎";
+            disapproveButton.className =
+              "bg-blue-500 hover:bg-blue-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500 w-1/6";
+            disapproveButton.addEventListener("click", async () => {
+              approveButton.textContent = "⊗";
+              try {
+                // Make the PUT request with the item's _id as a parameter
+                await makeDeleteRequest(joke._id);
+                // Remove the itemDiv after successful PUT request
+                notApprovedJoke.remove();
+              } catch (error) {
+                console.log("PUT request error:", error);
+                // Restore button text on error
+                approveButton.textContent = "👎";
               }
             });
             notApprovedJoke.appendChild(theJoke);
+            notApprovedJoke.appendChild(disapproveButton);
             notApprovedJoke.appendChild(approveButton);
             // Append the div to the container
             notApprovedContainer.appendChild(notApprovedJoke);
@@ -141,6 +160,33 @@
 
           const data = await response.json();
           console.log("PUT request successful:", data);
+          // Handle the response data as needed
+        } catch (error) {
+          console.log("PUT request error:", error);
+          throw error;
+        }
+      }
+      async function makeDeleteRequest(_id) {
+        var key = document.getElementById("secret-input").value;
+        // Construct the request URL with the itemId
+        const url = `https://hasyam-api.cyclic.app/delete/${_id}`;
+
+        try {
+          // Make the PUT request
+          const response = await fetch(url, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              key: `${key}`,
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error("PUT request failed");
+          }
+
+          const data = await response.json();
+          console.log("DELETE request successful:", data);
           // Handle the response data as needed
         } catch (error) {
           console.log("PUT request error:", error);

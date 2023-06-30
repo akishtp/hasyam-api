@@ -92,17 +92,9 @@
         event.preventDefault();
 
         var joke = document.getElementById("joke").value;
-        try {
-          var language = document.querySelector(
-            'input[name="language"]:checked'
-          ).value;
-        } catch (error) {
-          var failureDiv = document.createElement("div");
-          failureDiv.className = "bg-red-500 text-white my-4 p-3";
-          failureDiv.innerHTML = "Choose a language";
-          form.appendChild(failureDiv);
-          return;
-        }
+        var language = document.querySelector(
+          'input[name="language"]:checked'
+        ).value;
 
         fetch("https://hasyam-api.cyclic.app/", {
           method: "POST",
@@ -126,7 +118,7 @@
             console.error(error);
             var failureDiv = document.createElement("div");
             failureDiv.className = "bg-red-500 text-white my-4 p-3";
-            failureDiv.innerHTML = error;
+            failureDiv.innerHTML = error.message;
             form.appendChild(failureDiv);
           });
       });

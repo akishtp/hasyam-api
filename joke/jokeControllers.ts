@@ -40,7 +40,7 @@ export const approveJoke = async (req: Request, res: Response) => {
   const { key } = req.headers;
   if (key !== process.env.ADMIN_KEY) {
     res.status(400).json({
-      error: "you do not have the proper authorization to complete this action",
+      error: "You do not have the proper authorization to complete this action",
     });
   } else {
     const id = req.params.id;
@@ -112,5 +112,25 @@ export const getRandomManglishJokes = async (req: Request, res: Response) => {
     res.status(200).json(joke);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
+  }
+};
+
+export const deleteJoke = async (req: Request, res: Response) => {
+  const { key } = req.headers;
+  if (key !== process.env.ADMIN_KEY) {
+    res.status(400).json({
+      error: "You do not have the proper authorization to complete this action",
+    });
+  } else {
+    try {
+      const joke = await Joke.findById(req.params.id);
+      if (!joke) {
+        throw Error("Joke does not exist");
+      }
+      await joke.remove();
+      res.status(200).json(joke);
+    } catch (error: any) {
+      res.status(404).json({ error: error.message });
+    }
   }
 };
