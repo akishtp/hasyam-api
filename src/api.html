@@ -13,12 +13,16 @@
       function darkToggle() {
         var checkbox = document.querySelector('input[name="dark-toggle"]');
         var htmlElement = document.querySelector("html");
+        var navImg = document.querySelector("#nav-img");
+        var footerImg = document.querySelector("#footer-img");
 
         if (checkbox.checked) {
           htmlElement.classList.add("dark");
+          navImg.src = footerImg.src = "../assets/logo-dark.png";
           localStorage.setItem("checkboxValue", "checked");
         } else {
           htmlElement.classList.remove("dark");
+          navImg.src = footerImg.src = "../assets/logo-light.png";
           localStorage.setItem("checkboxValue", "unchecked");
         }
       }
@@ -33,13 +37,13 @@
       });
     </script>
     <nav
-      class="flex items-center justify-center bg-neutral-200 drop-shadow-lg bg-yellow-300 md:h-16 dark:bg-neutral-950 dark:text-neutral-200"
+      class="flex items-center justify-center bg-neutral-200 drop-shadow-lg md:h-16 dark:bg-neutral-950 dark:text-neutral-200"
     >
       <div
         class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
       >
         <div class="h-16 flex items-center">
-          <img src="../assets/logo-light.png" class="h-8 w-auto" />
+          <img src="../assets/logo-light.png" class="h-8 w-auto" id="nav-img" />
         </div>
         <div
           class="flex justify-between text-xl md:flex-row md:items-center md:text-base"
@@ -74,7 +78,9 @@
         >
           <a href="#call">Calling the API</a>
         </div>
-        <div class="ml-8 mr-4 pl-2 border-l-2 border-black">
+        <div
+          class="ml-8 mr-4 pl-2 border-l-2 border-black dark:border-neutral-200"
+        >
           <div
             class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
           >
@@ -96,7 +102,9 @@
         >
           <a href="#endpoints">Endpoints</a>
         </div>
-        <div class="ml-8 mr-4 pl-2 border-l-2 border-black">
+        <div
+          class="ml-8 mr-4 pl-2 border-l-2 border-black dark:border-neutral-200"
+        >
           <div
             class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
           >
@@ -268,7 +276,11 @@
         class="w-11/12 flex justify-between flex-col items-center md:w-10/12 md:flex-row"
       >
         <div class="w-1/2 hidden md:block">
-          <img src="../assets/logo-light.png" class="w-full md:w-4/12" />
+          <img
+            src="../assets/logo-light.png"
+            class="w-full md:w-4/12"
+            id="footer-img"
+          />
         </div>
         <div class="text-m flex md\:flex-row">
           <div class="px-2">About</div>

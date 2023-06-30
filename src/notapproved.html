@@ -13,12 +13,16 @@
       function darkToggle() {
         var checkbox = document.querySelector('input[name="dark-toggle"]');
         var htmlElement = document.querySelector("html");
+        var navImg = document.querySelector("#nav-img");
+        var footerImg = document.querySelector("#footer-img");
 
         if (checkbox.checked) {
           htmlElement.classList.add("dark");
+          navImg.src = footerImg.src = "../assets/logo-dark.png";
           localStorage.setItem("checkboxValue", "checked");
         } else {
           htmlElement.classList.remove("dark");
+          navImg.src = footerImg.src = "../assets/logo-light.png";
           localStorage.setItem("checkboxValue", "unchecked");
         }
       }

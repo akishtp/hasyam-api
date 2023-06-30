@@ -13,12 +13,16 @@
       function darkToggle() {
         var checkbox = document.querySelector('input[name="dark-toggle"]');
         var htmlElement = document.querySelector("html");
+        var navImg = document.querySelector("#nav-img");
+        var footerImg = document.querySelector("#footer-img");
 
         if (checkbox.checked) {
           htmlElement.classList.add("dark");
+          navImg.src = footerImg.src = "../assets/logo-dark.png";
           localStorage.setItem("checkboxValue", "checked");
         } else {
           htmlElement.classList.remove("dark");
+          navImg.src = footerImg.src = "../assets/logo-light.png";
           localStorage.setItem("checkboxValue", "unchecked");
         }
       }
@@ -39,7 +43,7 @@
         class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
       >
         <div class="h-16 flex items-center">
-          <img src="../assets/logo-light.png" class="h-8 w-auto" />
+          <img src="../assets/logo-light.png" class="h-8 w-auto" id="nav-img" />
         </div>
         <div
           class="flex justify-between text-xl md:flex-row md:items-center md:text-base"
@@ -76,7 +80,8 @@
           <span class="mr-1 w-1/2 md:w-auto">Language:</span>
           <div class="flex flex-col md:flex-row justify-center w-1/2 md:w-auto">
             <label class="mx-6">
-              <input type="radio" name="language" value="Malayalam" /> മലയാളം
+              <input type="radio" name="language" value="Malayalam" checked />
+              മലയാളം
             </label>
             <label class="mx-6"
               ><input type="radio" name="language" value="Manglish" />
@@ -103,7 +108,11 @@
         class="w-11/12 flex justify-between flex-col items-center md:w-10/12 md:flex-row"
       >
         <div class="w-1/2 hidden md:block">
-          <img src="../assets/logo-light.png" class="w-full md:w-4/12" />
+          <img
+            src="../assets/logo-light.png"
+            class="w-full md:w-4/12"
+            id="footer-img"
+          />
         </div>
         <div class="text-m flex md\:flex-row">
           <div class="px-2">About</div>
@@ -116,45 +125,53 @@
       </div>
     </footer>
     <script>
-      const form = document.getElementById("myForm");
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault(); // Prevent form submission
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+          const form = event.target;
+          const url = "https://hasyam-api.cyclic.app/";
+          var joke = document.getElementById("joke").value;
+          var language = document.querySelector(
+            'input[name="language"]:checked'
+          ).value;
 
-        var joke = document.getElementById("joke").value;
-        var language = document.querySelector(
-          'input[name="language"]:checked'
-        ).value;
-
-        if (!language) {
-          throw Error("no val");
-        }
-        fetch("https://hasyam-api.cyclic.app/", {
-          method: "POST",
-          body: JSON.stringify({ joke, language }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.error !== null) {
-              throw Error(data.error);
+          try {
+            if (!joke) {
+              throw Error("Please type in a joke b4 submitting");
             }
-            var successDiv = document.createElement("div");
-            successDiv.className = "bg-green-400 text-white my-4 p-3";
-            successDiv.innerHTML = "Joke submitted successfully!";
-            form.appendChild(successDiv);
-            form.reset();
-          })
-          .catch((error) => {
-            console.error(error);
+            const formData = new FormData(form);
+
+            const response = await fetch(url, {
+              method: "POST",
+              body: JSON.stringify({ joke, language }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+            if (response.status === 200) {
+              var successDiv = document.createElement("div");
+              successDiv.className = "bg-green-400 text-white my-4 p-3";
+              successDiv.innerHTML = "Joke submitted successfully!";
+              form.appendChild(successDiv);
+              form.reset();
+
+              setTimeout(function () {
+                successDiv.remove();
+              }, 5000);
+            }
+          } catch (error) {
             var failureDiv = document.createElement("div");
             failureDiv.className = "bg-red-500 text-white my-4 p-3";
             failureDiv.innerHTML = error.message;
             form.appendChild(failureDiv);
-          });
-      });
+
+            setTimeout(function () {
+              failureDiv.remove();
+            }, 5000);
+          }
+        });
     </script>
   </body>
 </html>
