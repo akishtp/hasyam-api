@@ -138,19 +138,19 @@
           ).value;
 
           try {
-            if (!joke) {
-              throw Error("Please type in a joke b4 submitting");
-            }
             const formData = new FormData(form);
 
             const response = await fetch(url, {
               method: "POST",
-              body: JSON.stringify({ joke, language }),
               headers: {
                 "Content-Type": "application/json",
               },
+              body: JSON.stringify({ joke, language }),
             });
-            if (response.status === 200) {
+            const data = await response.json();
+            if (data.error !== undefined) {
+              throw Error(data.error);
+            } else {
               var successDiv = document.createElement("div");
               successDiv.className = "bg-green-400 text-white my-4 p-3";
               successDiv.innerHTML = "Joke submitted successfully!";
