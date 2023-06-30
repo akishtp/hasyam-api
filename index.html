@@ -13,12 +13,16 @@
       function darkToggle() {
         var checkbox = document.querySelector('input[name="dark-toggle"]');
         var htmlElement = document.querySelector("html");
+        var navImg = document.querySelector("#nav-img");
+        var footerImg = document.querySelector("#footer-img");
 
         if (checkbox.checked) {
           htmlElement.classList.add("dark");
+          navImg.src = footerImg.src = "../assets/logo-dark.png";
           localStorage.setItem("checkboxValue", "checked");
         } else {
           htmlElement.classList.remove("dark");
+          navImg.src = footerImg.src = "../assets/logo-light.png";
           localStorage.setItem("checkboxValue", "unchecked");
         }
       }
@@ -39,7 +43,7 @@
         class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
       >
         <div class="h-16 flex items-center">
-          <img src="./assets/logo-light.png" class="h-8 w-auto" />
+          <img src="./assets/logo-light.png" class="h-8 w-auto" id="nav-img" />
         </div>
         <div
           class="flex justify-between text-xl md:flex-row md:items-center md:text-base"
@@ -79,13 +83,13 @@
         </div>
         <div class="flex flex-row text-white md:flex-col">
           <button
-            class="rounded-full h-12 w-12 bg-blue-500 m-2 shadow-lg"
+            class="rounded-full h-12 w-12 bg-blue-500 m-2 shadow-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
             id="new-joke-btn"
           >
-            ⎆
+            🔀
           </button>
           <button
-            class="rounded-full h-12 w-12 bg-red-500 m-2 shadow-lg"
+            class="rounded-full h-12 w-12 bg-red-500 m-2 shadow-lg hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-900"
             id="screenshot-btn"
           >
             📸
@@ -100,7 +104,11 @@
         class="w-11/12 flex justify-between flex-col items-center md:w-10/12 md:flex-row"
       >
         <div class="w-1/2 hidden md:block">
-          <img src="./assets/logo-light.png" class="w-full md:w-4/12" />
+          <img
+            src="./assets/logo-light.png"
+            class="w-full md:w-4/12"
+            id="footer-img"
+          />
         </div>
         <div class="text-m flex md\:flex-row">
           <div class="px-2">About</div>
