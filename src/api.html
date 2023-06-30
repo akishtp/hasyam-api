@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+
+    <title>API</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+  </head>
+  <body>
+    <script>
+      function darkToggle() {
+        var checkbox = document.querySelector('input[name="dark-toggle"]');
+        var htmlElement = document.querySelector("html");
+
+        if (checkbox.checked) {
+          htmlElement.classList.add("dark");
+          localStorage.setItem("checkboxValue", "checked");
+        } else {
+          htmlElement.classList.remove("dark");
+          localStorage.setItem("checkboxValue", "unchecked");
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        var checkbox = document.querySelector('input[name="dark-toggle"]');
+        var storedValue = localStorage.getItem("checkboxValue");
+
+        if (storedValue === "checked") {
+          checkbox.checked = true;
+          darkToggle();
+        }
+      });
+    </script>
+    <nav
+      class="flex items-center justify-center bg-neutral-200 drop-shadow-lg bg-yellow-300 md:h-16 dark:bg-neutral-950 dark:text-neutral-200"
+    >
+      <div
+        class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
+      >
+        <div class="h-16 flex items-center">
+          <img src="../assets/logo-light.png" class="h-8 w-auto" />
+        </div>
+        <div
+          class="flex justify-between text-xl md:flex-row md:items-center md:text-base"
+        >
+          <div class="flex flex-col md:flex-row">
+            <div
+              class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center mx-10"
+            >
+              <a href="../index.html">random joke 🔀</a>
+            </div>
+            <div
+              class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center mx-10"
+            >
+              <a href="../src/submit.html">submit a joke 📝</a>
+            </div>
+          </div>
+          <div
+            class="transition ease-in-out h-10 flex items-center mx-10 md:ml-0"
+          >
+            <input type="checkbox" name="dark-toggle" onchange="darkToggle()" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main
+      class="flex flex-col items-center w-screen py-8 text-xl min-h-144 md:min-h-1000 dark:bg-neutral-900 dark:text-white md:flex-row md:items-start"
+    >
+      <div class="w-11/12 text-lg pl-4 md:w-1/4">
+        <div class="text-xl text-neutral-600">API</div>
+        <div
+          class="pl-4 min-h-10 rounded-lg flex items-center hover:underline decoration-2"
+        >
+          <a href="#call">Calling the API</a>
+        </div>
+        <div class="ml-8 mr-4 pl-2 border-l-2 border-black">
+          <div
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
+          >
+            <a href="#authentication">Authentication</a>
+          </div>
+          <div
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
+          >
+            <a href="#response-format">Response Format</a>
+          </div>
+          <div
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
+          >
+            <a href="#usage-limits">Usage Limits</a>
+          </div>
+        </div>
+        <div
+          class="pl-4 min-h-10 rounded-lg flex items-center hover:underline decoration-2"
+        >
+          <a href="#endpoints">Endpoints</a>
+        </div>
+        <div class="ml-8 mr-4 pl-2 border-l-2 border-black">
+          <div
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
+          >
+            <a href="#fetch-all">Fetch all Jokes</a>
+          </div>
+          <div
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
+          >
+            <a href="#fetch-random">Fetch a Random Joke</a>
+          </div>
+          <div
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
+          >
+            <a href="#fetch-malayalam">Fetch only Malayalam Jokes</a>
+          </div>
+          <div
+            class="min-h-10 rounded-lg pl-2 flex items-center my-4 hover:bg-neutral-100"
+          >
+            <a href="#fetch-manglish">Fetch only Manglish Jokes</a>
+          </div>
+        </div>
+      </div>
+      <div class="w-11/12 md:3/4">
+        <div class="text-2xl font-bold text-neutral-700">API</div>
+        <div class="text-base">
+          ശുദ്ധ ഹാസ്യം മരിച്ചിട്ടില്ല (Pure comedy is not dead). Get Malayalam,
+          Manglish or a Random joke
+        </div>
+        <div class="text-2xl font-bold my-8" id="call">Calling the API</div>
+        <div class="text-xl font-semibold my-4" id="authentication">
+          Authentication
+        </div>
+        <div class="text-base">
+          No authentication is required to use the API. Enjoy :)
+        </div>
+        <div class="text-xl font-semibold my-4" id="response-format">
+          Response Format
+        </div>
+        <div class="text-base">
+          <ul class="list-disc">
+            The response from the API will be in JSON format. Each joke object
+            will contain the following properties:
+            <li class="mx-6">_id : The unique identifier of the joke.</li>
+            <li class="mx-6">joke : The text of the joke.</li>
+            <li class="mx-6">language : The language of the joke.</li>
+          </ul>
+        </div>
+        <div class="text-xl font-semibold my-4" id="usage-limits">
+          Usage limit
+        </div>
+        <div class="text-base">
+          <ul class="list-disc">
+            To prevent abuse and ensure fair usage, the API imposes the
+            following limits:
+            <li class="mx-6">Requests per minute: 100,</li>
+            <li class="mx-6">Requests per day: 1000.</li>
+          </ul>
+        </div>
+        <div class="text-2xl font-bold my-8" id="endpoints">Endpoints</div>
+        <div class="text-xl font-semibold my-4" id="fetch-all">Fetch all</div>
+        <div class="text-base">Fetch all</div>
+        <div class="text-xl font-semibold my-4" id="fetch-random">
+          Fetch random
+        </div>
+        <div class="text-base">
+          <p class="text-gray-700 mb-2">
+            This endpoint retrieves a random Malayalam joke.
+          </p>
+          <<<<<<< HEAD
+          <div>Endpoint:</div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/random
+          </div>
+          <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
+          <pre
+            class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
+          >
+<code class="language-json">
+{
+  "id": 32,
+  "joke": "എതു തരം അപ്പത്തിനാണ് വട്ട് ?",
+  "language": "Malayalam"
+}
+</code>
+</pre>
+        </div>
+        <div class="text-xl font-semibold my-4" id="fetch-malayalam">
+          Fetch Malayalam
+        </div>
+
+        <div class="text-base">
+          <p class="text-gray-700 mb-2">
+            This endpoint retrieves Malayalam jokes. probably why you want this
+            API.
+          </p>
+          <div>Endpoints:</div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/malayalam
+          </div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/malayalam/random
+          </div>
+          <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
+          <pre
+            class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
+          >
+<code class="language-json">
+{
+  "id": 1,
+  "joke": "അമ്മാവൻ:ഡും ഡും...",
+  "language": "Malayalam"
+},
+{
+  "id": 2,
+  "joke": "സർദാർജി അമേരിക്കയിൽ പോയി ✈️...",
+  "language": "Malayalam"
+}
+</code>
+</pre>
+        </div>
+        <div class="text-xl font-semibold my-4" id="fetch-manglish">
+          Fetch Manglish
+        </div>
+        <div class="text-base">
+          <p class="text-gray-700 mb-2">
+            This endpoint retrieves Manglish jokes.
+          </p>
+          <div>Endpoints:</div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/manglish
+          </div>
+          <div
+            class="w-full bg-black rounded-xl text-white px-4 py-3 my-4 mr-20 md:w-42"
+          >
+            https://hasyam-api.cyclic.app/manglish/random
+          </div>
+          <p class="text-gray-700 mb-2"><strong>Response:</strong></p>
+          <pre
+            class="w-full bg-black text-white rounded-2xl inline-block max-w-full px-4 mr-20 md:w-42"
+          >
+<code class="language-json">
+{
+  "id": 64981318a724d0ce987b5296,
+  "joke": "Suresh vazhiyiloode pokumbol oru 2000...",
+  "language": "Manglish"
+},
+{
+  "id": 64984acf085ca11aae549b2a,
+  "joke": "Gandhiji odicha car eth...",
+  "language": "Manglish"
+}
+</code>
+</pre>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="bottom-0 flex justify-center w-screen bg-neutral-100 py-8 h-28 items-center dark:bg-neutral-950 dark:text-neutral-200"
+    >
+      <div
+        class="w-11/12 flex justify-between flex-col items-center md:w-10/12 md:flex-row"
+      >
+        <div class="w-1/2 hidden md:block">
+          <img src="../assets/logo-light.png" class="w-full md:w-4/12" />
+        </div>
+        <div class="text-m flex md\:flex-row">
+          <div class="px-2">About</div>
+          <div class="px-2"><a href="./api.html">API</a></div>
+          <div class="px-2">Contact</div>
+          <div class="px-2">
+            <a href="./notapproved.html">Not Approved(yet)</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

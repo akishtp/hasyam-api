@@ -15,9 +15,10 @@ export const createJoke = async (req: Request, res: Response) => {
   try {
     if (!joke) {
       throw Error("Please type in your joke before submitting next time");
+    } else {
+      const da_joke = await Joke.create({ joke, language });
+      res.status(200).json(da_joke);
     }
-    const da_joke = await Joke.create({ joke, language });
-    res.status(200).json(da_joke);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
