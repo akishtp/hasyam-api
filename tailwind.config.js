@@ -13,6 +13,9 @@ module.exports = {
         1000: "calc(100% - 80px)",
         42: "calc(100% - 128px)",
       },
+      translate: {
+        special: "60%",
+      },
     },
   },
   plugins: [],
