@@ -913,7 +913,7 @@
     elems.forEach((elem, ind) => {
       const node = document.querySelector(elem);
       toPng(node).then(function(dataUrl) {
-        (0, import_downloadjs.default)(dataUrl, "my-node.png");
+        (0, import_downloadjs.default)(dataUrl, "shudha-hasyam.png");
       }).catch(function(error) {
         console.error("oops, something went wrong!");
         console.log(error);

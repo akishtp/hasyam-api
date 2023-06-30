@@ -9,8 +9,31 @@
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
   </head>
   <body>
+    <script>
+      function darkToggle() {
+        var checkbox = document.querySelector('input[name="dark-toggle"]');
+        var htmlElement = document.querySelector("html");
+
+        if (checkbox.checked) {
+          htmlElement.classList.add("dark");
+          localStorage.setItem("checkboxValue", "checked");
+        } else {
+          htmlElement.classList.remove("dark");
+          localStorage.setItem("checkboxValue", "unchecked");
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        var checkbox = document.querySelector('input[name="dark-toggle"]');
+        var storedValue = localStorage.getItem("checkboxValue");
+
+        if (storedValue === "checked") {
+          checkbox.checked = true;
+          darkToggle();
+        }
+      });
+    </script>
     <nav
-      class="flex items-center justify-center bg-gray-50 drop-shadow-lg bg-yellow-300 md:h-16"
+      class="flex items-center justify-center bg-gray-50 drop-shadow-lg bg-yellow-300 md:h-16 dark:bg-amber-600 dark:text-neutral-200"
     >
       <div
         class="w-11/12 flex flex-col justify-between md:w-10/12 md:flex-row md:items-center"
@@ -19,38 +42,47 @@
           <img src="../assets/logo-light.png" class="h-8 w-auto" />
         </div>
         <div
-          class="flex justify-center text-xl flex-col md:flex-row md:items-center md:text-base"
+          class="flex justify-between text-xl md:flex-row md:items-center md:text-base"
         >
-          <div
-            class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center mx-10"
-          >
-            <a href="../index.html">random joke 🔀</a>
+          <div class="flex flex-col md:flex-row">
+            <div
+              class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center mx-10"
+            >
+              <a href="../index.html">random joke 🔀</a>
+            </div>
+            <div
+              class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center mx-10"
+            >
+              <a href="../src/submit.html">submit a joke 📝</a>
+            </div>
           </div>
           <div
-            class="transition ease-in-out hover:-translate-y-0.5 h-10 flex items-center cursor-pointer mx-10 md:ml-0"
+            class="transition ease-in-out h-10 flex items-center mx-10 md:ml-0"
           >
-            <a href="./submit.html">submit a joke 📝</a>
+            <input type="checkbox" name="dark-toggle" onchange="darkToggle()" />
           </div>
         </div>
       </div>
     </nav>
     <main
-      class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000"
+      class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000 dark:bg-neutral-900 dark:text-white"
     >
       <div
         id="not-approved-container"
         class="w-screen flex items-center justify-center flex-col"
       ></div>
-      <label><input type="text" id="secret-input" /></label>
+      <label
+        ><input type="text" id="secret-input" class="my-20 dark:bg-neutral-900"
+      /></label>
     </main>
     <footer
-      class="bottom-0 flex justify-center w-screen bg-yellow-300 py-8 h-28 items-center"
+      class="bottom-0 flex justify-center w-screen bg-yellow-300 py-8 h-28 items-center dark:bg-amber-600 dark:text-neutral-200"
     >
       <div
         class="w-11/12 flex justify-between flex-col items-center md:w-10/12 md:flex-row"
       >
         <div class="w-1/2 hidden md:block">
-          <img src="../assets/logo-light.png" class="w-full md:w-4/12" />
+          <img src="../assets/logo-dark.png" class="w-full md:w-4/12" />
         </div>
         <div class="text-m flex md\:flex-row">
           <div class="px-2">About</div>
@@ -110,9 +142,9 @@
             const disapproveButton = document.createElement("button");
             disapproveButton.textContent = "👎";
             disapproveButton.className =
-              "bg-blue-500 hover:bg-blue-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500 w-1/6";
+              "bg-red-500 hover:bg-red-600 text-white font-bold h-10 w-12 rounded-3xl border-2 border-neutral-500 w-1/6";
             disapproveButton.addEventListener("click", async () => {
-              approveButton.textContent = "⊗";
+              disapproveButton.textContent = "⊗";
               try {
                 // Make the PUT request with the item's _id as a parameter
                 await makeDeleteRequest(joke._id);
