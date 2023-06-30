@@ -13,7 +13,7 @@ export const getAllJokes = async (req: Request, res: Response) => {
 export const createJoke = async (req: Request, res: Response) => {
   const { joke, language } = req.body;
   try {
-    if (joke === null) {
+    if (!joke) {
       throw Error("Please type in your joke before submitting next time");
     }
     const da_joke = await Joke.create({ joke, language });
