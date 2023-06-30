@@ -23,6 +23,6 @@ router.get("/malayalam", getMalayalamJokes);
 router.get("/malayalam/random", getRandomMalayalamJokes);
 router.get("/manglish", getManglishJokes);
 router.get("/manglish/random", getRandomManglishJokes);
-router.delete("/delete/:id", deleteJoke);
+router.delete("/:id", deleteJoke);
 
 module.exports = router;
