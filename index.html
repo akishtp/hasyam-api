@@ -19,13 +19,13 @@
 
         if (checkbox.checked) {
           htmlElement.classList.add("dark");
-          navImg.src = footerImg.src = "../assets/logo-dark.png";
+          navImg.src = footerImg.src = "./assets/logo-dark.png";
           label.classList.add("bg-blue-500");
           checkbox.classList.add("translate-x-special");
           localStorage.setItem("checkboxValue", "checked");
         } else {
           htmlElement.classList.remove("dark");
-          navImg.src = footerImg.src = "../assets/logo-light.png";
+          navImg.src = footerImg.src = "./assets/logo-light.png";
           label.classList.remove("bg-blue-500");
           checkbox.classList.remove("translate-x-special");
           localStorage.setItem("checkboxValue", "unchecked");
