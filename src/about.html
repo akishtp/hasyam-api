@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../dist/output.css" rel="stylesheet" />
 
-    <title>ഒരു തമാശ പറ</title>
+    <title>About</title>
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
   </head>
   <body>
@@ -88,37 +88,12 @@
       </div>
     </nav>
     <main
-      class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000 dark:bg-neutral-900 dark:text-neutral-200"
+      class="flex items-center flex-col w-screen py-8 text-xl min-h-144 md:min-h-1000 dark:bg-neutral-900 dark:text-white"
     >
-      <form class="w-11/12 md:w-10/12" id="myForm">
-        <div class="w-full my-4">
-          * All submitted jokes will be reviewed to ensure they are not
-          duplicates of existing jokes and are appropriate for the site.
-        </div>
-        <div class="flex my-4 md:my-0">
-          <span class="mr-1 w-1/2 md:w-auto">Language:</span>
-          <div class="flex flex-col md:flex-row justify-center w-1/2 md:w-auto">
-            <label class="mx-6">
-              <input type="radio" name="language" value="Malayalam" checked />
-              മലയാളം
-            </label>
-            <label class="mx-6"
-              ><input type="radio" name="language" value="Manglish" />
-              Manglish</label
-            >
-          </div>
-        </div>
-        <textarea
-          class="resize-y min-h-100 border-2 w-full my-4 dark:bg-neutral-700 dark:border-black"
-          placeholder="Write your joke here"
-          id="joke"
-        ></textarea>
-        <button
-          class="border-2 bg-blue-500 text-white rounded-md py-1 px-3 hover:bg-blue-600 dark:border-black dark:bg-blue-700 hover:dark:bg-blue-800"
-        >
-          Submit
-        </button>
-      </form>
+      I made this as a joke(not really). Not much to write about in about.
+      <div>
+        Go see <a href="./contact.html" class="text-blue-600">Contact</a>
+      </div>
     </main>
     <footer
       class="bottom-0 flex justify-center w-screen bg-yellow-300 py-8 h-28 items-center dark:bg-amber-600 dark:text-neutral-200"
@@ -128,7 +103,7 @@
       >
         <div class="w-1/2 hidden md:block">
           <img
-            src="../assets/logo-light.png"
+            src="../assets/logo-dark.png"
             class="w-full md:w-4/12"
             id="footer-img"
           />
@@ -143,54 +118,5 @@
         </div>
       </div>
     </footer>
-    <script>
-      document
-        .getElementById("myForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault(); // Prevent form submission
-
-          const form = event.target;
-          const url = "https://hasyam-api.cyclic.app/";
-          var joke = document.getElementById("joke").value;
-          var language = document.querySelector(
-            'input[name="language"]:checked'
-          ).value;
-
-          try {
-            const formData = new FormData(form);
-
-            const response = await fetch(url, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ joke, language }),
-            });
-            const data = await response.json();
-            if (data.error !== undefined) {
-              throw Error(data.error);
-            } else {
-              var successDiv = document.createElement("div");
-              successDiv.className = "bg-green-400 text-white my-4 p-3";
-              successDiv.innerHTML = "Joke submitted successfully!";
-              form.appendChild(successDiv);
-              form.reset();
-
-              setTimeout(function () {
-                successDiv.remove();
-              }, 5000);
-            }
-          } catch (error) {
-            var failureDiv = document.createElement("div");
-            failureDiv.className = "bg-red-500 text-white my-4 p-3";
-            failureDiv.innerHTML = error.message;
-            form.appendChild(failureDiv);
-
-            setTimeout(function () {
-              failureDiv.remove();
-            }, 5000);
-          }
-        });
-    </script>
   </body>
 </html>
