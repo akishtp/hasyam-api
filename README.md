@@ -11,9 +11,9 @@ No authentication is required to use the API. Enjoy :)
 The response from the API will be in JSON format. Each joke object will contain the following properties:
 
 ```json
-_id : The unique identifier of the joke.
-joke : The text of the joke.
-language : The language of the joke.
+"_id" : "The unique identifier of the joke."
+"joke" : "The text of the joke."
+"language" : "The language of the joke."
 ```
 
 ## Usage limit
@@ -102,12 +102,12 @@ Response:
 
 ```json
 {
-  "id": 64981318a724d0ce987b5296,
+  "id": "64981318a724d0ce987b5296",
   "joke": "Suresh vazhiyiloode pokumbol oru 2000...",
   "language": "Manglish"
 },
 {
-  "id": 64984acf085ca11aae549b2a,
+  "id": "64984acf085ca11aae549b2a",
   "joke": "Gandhiji odicha car eth...",
   "language": "Manglish"
 }
