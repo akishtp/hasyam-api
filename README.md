@@ -1,77 +1,114 @@
-# Joke API
+# Hasyam API
 
-Welcome to the Joke API! This API allows you to retrieve jokes of various categories and styles to add humor and entertainment to your applications.
+ശുദ്ധ ഹാസ്യം മരിച്ചിട്ടില്ല (Pure comedy is not dead). Get Malayalam, Manglish or a Random joke
 
-## Usage
+## Authentication
 
-To use the Joke API, send a GET request to the following endpoint:
-
-```
-https://api.jokeapi.com/v1/jokes/{category}
-```
-
-Replace `{category}` with the desired joke category. Here are some available categories:
-
-- `general`: General jokes
-- `programming`: Programming-related jokes
-- `knock-knock`: Knock-knock jokes
-- `pun`: Puns and wordplay jokes
-- `spooky`: Spooky and Halloween-themed jokes
-
-You can also specify additional parameters to customize the jokes you receive:
-
-- `type`: Specify the type of joke, such as `single` for one-liners or `twopart` for jokes with a setup and punchline.
-- `blacklistFlags`: Exclude jokes with certain characteristics, like `nsfw` for not-safe-for-work jokes or `racist` for racist jokes.
-
-Example request:
-
-```
-GET https://api.jokeapi.com/v1/jokes/programming?type=single&blacklistFlags=nsfw
-```
-
-Example response:
-
-```json
-{
-  "category": "programming",
-  "type": "single",
-  "joke": "Why do programmers prefer dark mode? Because light attracts bugs!"
-}
-```
+No authentication is required to use the API. Enjoy :)
 
 ## Response Format
 
-The response from the Joke API will be a JSON object with the following structure:
+The response from the API will be in JSON format. Each joke object will contain the following properties:
+
+```json
+_id : The unique identifier of the joke.
+joke : The text of the joke.
+language : The language of the joke.
+```
+
+## Usage limit
+
+To prevent abuse and ensure fair usage, the API imposes the following limits:
+Requests per minute: null
+Requests per day: null
+
+# Endpoints
+
+## Fetch all
+
+This endpoint retrieves all the jokes.
+
+Endpoint:
+
+`https://hasyam-api.cyclic.app/`
+
+Response:
 
 ```json
 {
-  "category": "Category of the joke",
-  "type": "Type of the joke",
-  "joke": "The joke itself",
-  "setup": "Setup of the joke (only for twopart jokes)",
-  "delivery": "Punchline of the joke (only for twopart jokes)"
+  "id": 1,
+  "joke": "അമ്മാവൻ:ഡും ഡും...",
+  "language": "Malayalam"
+},
+{
+  "id": 2,
+  "joke": "സർദാർജി അമേരിക്കയിൽ പോയി ✈️...",
+  "language": "Malayalam"
 }
 ```
 
-- The `category` field represents the category of the joke.
-- The `type` field indicates whether the joke is a single one-liner or a two-part joke with a setup and punchline.
-- The `joke` field contains the joke itself.
-- For two-part jokes, the `setup` field contains the setup of the joke, and the `delivery` field contains the punchline.
+## Fetch random
 
-## Rate Limiting
+This endpoint retrieves a random Malayalam or Manglish joke.
 
-The Joke API has a rate limit of 100 requests per hour per IP address. If you exceed this limit, you will receive a `429 Too Many Requests` response.
+Endpoint:
 
-## Contributing
+`https://hasyam-api.cyclic.app/random`
 
-If you have any jokes or feature suggestions for the Joke API, feel free to submit a pull request to our [GitHub repository](https://github.com/example/joke-api). We appreciate your contributions!
+Response:
 
-## License
+```json
+{
+  "id": 32,
+  "joke": "എതു തരം അപ്പത്തിനാണ് വട്ട് ?",
+  "language": "Malayalam"
+}
+```
 
-The Joke API is available under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use it in your applications, both personal and commercial.
+## Fetch Malayalam
 
-## Disclaimer
+This endpoint retrieves Malayalam jokes. probably why you want this API.
 
-Please note that the jokes provided by the Joke API may vary in content and humor. We strive to maintain a friendly and inclusive environment, so please avoid offensive or discriminatory use of the API.
+Endpoint:
 
-Enjoy the jokes and have a good laugh! 😄
+`https://hasyam-api.cyclic.app/malayalam`
+`https://hasyam-api.cyclic.app/malayalam/random`
+
+Response:
+
+```json
+{
+  "id": 1,
+  "joke": "അമ്മാവൻ:ഡും ഡും...",
+  "language": "Malayalam"
+},
+{
+  "id": 2,
+  "joke": "സർദാർജി അമേരിക്കയിൽ പോയി ✈️...",
+  "language": "Malayalam"
+}
+```
+
+## Fetch Manglish
+
+This endpoint retrieves Manglish jokes.
+
+Endpoint:
+
+`https://hasyam-api.cyclic.app/manglish`
+`https://hasyam-api.cyclic.app/manglish/random`
+
+Response:
+
+```json
+{
+  "id": 64981318a724d0ce987b5296,
+  "joke": "Suresh vazhiyiloode pokumbol oru 2000...",
+  "language": "Manglish"
+},
+{
+  "id": 64984acf085ca11aae549b2a,
+  "joke": "Gandhiji odicha car eth...",
+  "language": "Manglish"
+}
+```
