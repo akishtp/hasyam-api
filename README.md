@@ -69,9 +69,10 @@ Response:
 
 This endpoint retrieves Malayalam jokes. probably why you want this API.
 
-Endpoint:
+Endpoints:
 
 `https://hasyam-api.cyclic.app/malayalam`
+
 `https://hasyam-api.cyclic.app/malayalam/random`
 
 Response:
@@ -93,9 +94,10 @@ Response:
 
 This endpoint retrieves Manglish jokes.
 
-Endpoint:
+Endpoints:
 
 `https://hasyam-api.cyclic.app/manglish`
+
 `https://hasyam-api.cyclic.app/manglish/random`
 
 Response:
