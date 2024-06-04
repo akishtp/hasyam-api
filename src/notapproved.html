@@ -130,7 +130,7 @@
       notApprovedContainer.textContent = "Loading...";
 
       // Fetch data from the API
-      fetch("https://hasyam-api.cyclic.app/notapproved")
+      fetch("https://hasyam-api.onrender.com/notapproved")
         .then((response) => response.json())
         .then((data) => {
           // Clear loading text
@@ -201,7 +201,7 @@
       async function makePutRequest(_id) {
         var key = document.getElementById("secret-input").value;
         // Construct the request URL with the itemId
-        const url = `https://hasyam-api.cyclic.app/${_id}`;
+        const url = `https://hasyam-api.onrender.com/${_id}`;
 
         try {
           // Make the PUT request
@@ -228,7 +228,7 @@
       async function makeDeleteRequest(_id) {
         var key = document.getElementById("secret-input").value;
         // Construct the request URL with the itemId
-        const url = `https://hasyam-api.cyclic.app/${_id}`;
+        const url = `https://hasyam-api.onrender.com/${_id}`;
 
         try {
           // Make the PUT request
